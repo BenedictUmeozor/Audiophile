@@ -8,8 +8,12 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #d87d4a;
+  --color-dark: #101010;
+  --color-muted: #f1f1f1;
+  --color-offwhite: #fafafa;
+  --color-primary-light: #fbaf85;
+  --color-danger: #cd2c2c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +23,37 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility h1 {
+  @apply text-[56px] leading-[58px] font-bold tracking-[2px] uppercase;
+}
+
+@utility h2 {
+  @apply text-[40px] leading-11 font-bold tracking-[1.5px] uppercase;
+}
+
+@utility h3 {
+  @apply text-[32px] leading-9 font-bold tracking-[1.15px] uppercase;
+}
+
+@utility h4 {
+  @apply text-[28px] leading-[38px] font-bold tracking-[2px] uppercase;
+}
+
+@utility h5 {
+  @apply text-[24px] leading-[33px] font-bold tracking-[1.7px] uppercase;
+}
+
+@utility h6 {
+  @apply text-[18px] leading-6 font-bold tracking-[1.3px] uppercase;
+}
+
+@utility overline {
+  @apply text-[14px] leading-[19px] font-normal tracking-[10px] uppercase;
+}
+@utility subtitle {
+  @apply text-[13px] leading-[25px] font-bold tracking-[1px] uppercase;
+}
+
+@utility body {
+  @apply text-[15px] leading-[25px] font-medium;
 }
