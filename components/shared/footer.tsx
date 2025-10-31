@@ -9,8 +9,9 @@ import Container from "./container";
 const Footer = () => {
   return (
     <footer className="bg-dark">
-      <Container className="pt-[75px] pb-12">
-        <div className="mb-8 flex items-center justify-between">
+      <Container className="relative pt-[75px] pb-12 max-lg:pt-[60px] max-lg:pb-[46px]">
+        <div className="bg-primary absolute top-0 left-0 z-10 h-1 w-[101px]" />
+        <div className="mb-8 flex justify-between gap-y-8 max-lg:flex-col lg:items-center">
           <Link href="/">
             <Image
               src="/assets/logo.svg"
@@ -43,14 +44,14 @@ const Footer = () => {
             </ul>
           </nav>
         </div>
-        <div className="mb-14 grid grid-cols-2">
+        <div className="mb-14 grid max-lg:mb-20 lg:grid-cols-2">
           <p className="body text-white opacity-50">
             Audiophile is an all in one stop to fulfill your audio needs.
             We&apos;re a small team of music lovers and sound specialists who
             are devoted to helping you get the most out of personal audio. Come
             and visit our demo facility - we’re open 7 days a week.
           </p>
-          <div className="flex items-end justify-end gap-x-4">
+          <div className="flex items-end justify-end gap-x-4 max-lg:hidden">
             <Link href="#" aria-label="Facebook">
               <FacebookIcon className="hover:fill-primary fill-white transition-colors duration-150 ease-linear" />
             </Link>
@@ -62,9 +63,22 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <p className="text-[15px] leading-[25px] font-bold tracking-[0px] text-white opacity-50">
-          Copyright 2021. All Rights Reserved
-        </p>
+        <div className="items-center justify-between max-lg:flex">
+          <p className="text-[15px] leading-[25px] font-bold tracking-[0px] text-white opacity-50">
+            Copyright 2021. All Rights Reserved
+          </p>
+          <div className="flex items-end justify-end gap-x-4 lg:hidden">
+            <Link href="#" aria-label="Facebook">
+              <FacebookIcon className="hover:fill-primary fill-white transition-colors duration-150 ease-linear" />
+            </Link>
+            <Link href="#" aria-label="Twitter">
+              <TwitterIcon className="hover:fill-primary fill-white transition-colors duration-150 ease-linear" />
+            </Link>
+            <Link href="#" aria-label="Instagram">
+              <InstagramIcon className="hover:fill-primary fill-white transition-colors duration-150 ease-linear" />
+            </Link>
+          </div>
+        </div>
       </Container>
     </footer>
   );

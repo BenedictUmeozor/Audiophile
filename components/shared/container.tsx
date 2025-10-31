@@ -12,7 +12,7 @@ const Container = ({
   return (
     <div
       className={cn(
-        "mx-auto w-full md:max-w-[689px] lg:max-w-[1110px]",
+        "mx-auto w-full max-lg:max-w-[689px] max-w-[1110px]",
         className,
         addOverflow && "overflow-hidden",
       )}

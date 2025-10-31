@@ -4,21 +4,27 @@ import { CATEGORIES } from "@/constants/categories";
 import Image from "next/image";
 import Link from "next/link";
 import CartIcon from "../icons/cart-icon";
+import HamburgerIcon from "../icons/hamburger-icon";
 import Container from "./container";
 
 const Header = () => {
   return (
     <header className="sticky top-0 z-99 bg-[#191919]">
       <Container className="flex items-center justify-between border-b border-b-white/20 pt-[35px] pb-9">
-        <Link href="/">
-          <Image
-            src="/assets/logo.svg"
-            alt="Logo"
-            width={143}
-            height={25}
-            className="h-[25] w-[143]"
-          />
-        </Link>
+        <div className="items-center gap-x-[42px] max-lg:flex">
+          <button className="lg:hidden">
+            <HamburgerIcon />
+          </button>
+          <Link href="/">
+            <Image
+              src="/assets/logo.svg"
+              alt="Logo"
+              width={143}
+              height={25}
+              className="h-[25] w-[143]"
+            />
+          </Link>
+        </div>
         <nav className="hidden lg:block">
           <ul className="flex items-center gap-[34px]">
             <li>

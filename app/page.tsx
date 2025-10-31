@@ -7,7 +7,7 @@ import ProductZX7Speaker from "../components/home/product-zx7-speaker";
 
 export default function Page() {
   return (
-    <main className="mb-40">
+    <main className="mb-40 max-lg:mb-24">
       <HomeHero />
       <Categories />
       <ProductZX9Speaker />

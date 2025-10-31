@@ -8,30 +8,33 @@ import Button from "../ui/button";
 const Categories = () => {
   return (
     <Container
-      className="flex items-center gap-[30px] pt-[120px] pb-[168px]"
+      className="flex items-center gap-x-2.5 max-lg:pt-24 max-lg:pb-24 lg:gap-x-[30px] lg:pt-[120px] lg:pb-[168px]"
       addOverflow={false}
     >
       {CATEGORIES.map((category, index) => (
         <Link
           key={category.name}
           href={`/categories/${category.slug}`}
-          className="bg-muted group relative flex flex-1 cursor-pointer flex-col items-center justify-center gap-9 rounded-lg p-[30px] pt-[116px]"
+          className="bg-muted group relative flex flex-1 cursor-pointer flex-col items-center justify-center gap-9 rounded-lg max-lg:p-[22px] max-lg:pt-[88px] lg:p-[30px] lg:pt-[116px]"
         >
           <Image
             src={`/assets/shared/desktop/image-category-thumbnail-${category.slug}.png`}
             alt={category.name}
             className={cn(
               "absolute inset-0 mx-auto -translate-y-[38%] object-cover transition-transform group-hover:scale-105",
-              index === 0 && "h-40 w-[122.95]",
-              index === 1 && "h-[146px] w-[121.49px]",
-              index === 2 && "h-[126px] w-[125px]",
+              index === 0 &&
+                "max-lg:h-[104px] max-lg:w-[79.92px] lg:h-40 lg:w-[122.95]",
+              index === 1 &&
+                "max-lg:h-[101px] max-lg:w-[84.04px] lg:h-[146px] lg:w-[121.49px]",
+              index === 2 &&
+                "max-lg:h-[104px] max-lg:w-[103px] lg:h-[126px] lg:w-[125px]",
             )}
             width={150}
             height={160}
           />
 
           <div className="flex flex-col items-center justify-center gap-y-[15px]">
-            <p className="text-[18px] leading-[100%] font-bold tracking-[1.29px] uppercase">
+            <p className="leading-[100%] font-bold uppercase max-lg:text-[15px] max-lg:tracking-[1.07px] lg:text-[18px] lg:tracking-[1.29px]">
               {category.name}
             </p>
             <Button variant="shop" />

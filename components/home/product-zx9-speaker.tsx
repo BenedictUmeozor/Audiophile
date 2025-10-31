@@ -4,7 +4,7 @@ import Button from "../ui/button";
 
 const ProductZX9Speaker = () => {
   return (
-    <Container className="bg-primary relative mb-12 flex h-[560px] items-end justify-center gap-x-[135.28px] overflow-hidden rounded-lg bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-size-[944px_944px] bg-position-[-185px_-35px] bg-no-repeat">
+    <Container className="bg-primary relative mb-12 flex flex-col items-center justify-center gap-x-[135.28px] overflow-hidden rounded-lg bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-size-[944px_944px] bg-position-[-185px_-35px] bg-no-repeat max-lg:mb-8 max-lg:gap-y-16 max-lg:pt-[52px] max-lg:pb-16 lg:flex-row lg:items-end lg:pt-[133px] lg:pb-0">
       <picture>
         <source
           media="(min-width: 1024px)"
@@ -17,12 +17,12 @@ const ProductZX9Speaker = () => {
         <Image
           src="/assets/home/mobile/image-speaker-zx9.png"
           alt="Speaker ZX9"
-          className="-mb-4 h-[493px] w-[410.23px]"
+          className="max-lg:h-[237px] max-lg:w-[197.21px] lg:-mb-4 lg:h-[493px] lg:w-[410.23px]"
           width={300}
           height={300}
         />
       </picture>
-      <div className="mt-[133px] w-[349px] self-start">
+      <div className="w-[349px] self-start max-lg:mx-auto max-lg:text-center">
         <h2 className="h1 mb-6 text-white">
           ZX9 <br />
           SPEAKER
