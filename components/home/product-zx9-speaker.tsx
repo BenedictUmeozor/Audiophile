@@ -4,7 +4,7 @@ import Button from "../ui/button";
 
 const ProductZX9Speaker = () => {
   return (
-    <Container className="bg-primary relative mb-12 flex flex-col items-center justify-center gap-x-[135.28px] overflow-hidden rounded-lg bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-size-[944px_944px] bg-position-[-185px_-35px] bg-no-repeat max-lg:mb-8 max-lg:gap-y-16 max-lg:pt-[52px] max-lg:pb-16 max-md:mb-6 max-md:gap-y-8 lg:flex-row lg:items-end lg:pt-[133px] lg:pb-0">
+    <Container className="bg-primary **bg-size-[944px_944px] max-md:bg-position-[center_-120px]** relative mb-12 flex flex-col items-center justify-center gap-x-[135.28px] overflow-hidden rounded-lg bg-[url('/assets/home/desktop/pattern-circles.svg')] bg-position-[-185px_-35px] bg-no-repeat max-lg:mb-8 max-lg:gap-y-16 max-lg:bg-size-[558px_558px] max-lg:bg-position-[center_-140px] max-lg:pt-[52px] max-lg:pb-16 max-md:mb-6 max-md:gap-y-8 lg:flex-row lg:items-end lg:pt-[133px] lg:pb-0">
       <picture>
         <source
           media="(min-width: 1024px)"

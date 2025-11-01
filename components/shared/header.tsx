@@ -8,11 +8,17 @@ import HamburgerIcon from "../icons/hamburger-icon";
 import Container from "./container";
 
 const Header = () => {
+  const handleClick = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("toggle-menu"));
+    }
+  };
+
   return (
     <header className="sticky top-0 z-9999 bg-[#191919] max-md:border-b max-md:border-b-white/20">
       <Container className="flex items-center justify-between border-b border-b-white/20 pt-[35px] pb-9 max-md:border-b-0">
         <div className="items-center gap-x-[42px] max-lg:flex">
-          <button className="lg:hidden">
+          <button className="lg:hidden" onClick={handleClick}>
             <HamburgerIcon />
           </button>
           <Link href="/" className="max-md:hidden">

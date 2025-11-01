@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} relative antialiased`}>
+      <body className={`${manrope.className} antialiased`}>
         <Header />
         {children}
         <Footer />
