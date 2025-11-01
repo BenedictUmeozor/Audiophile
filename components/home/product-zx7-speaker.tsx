@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Container from "../shared/container";
 import Button from "../ui/button";
 
@@ -9,7 +10,9 @@ const ProductZX7Speaker = () => {
         <h2 className="mb-8 text-[28px] leading-[100%] font-bold tracking-[2px] text-black uppercase">
           ZX7 SPEAKER
         </h2>
-        <Button variant="outline">SEE PRODUCT</Button>
+        <Link href="/products/zx7-speaker">
+          <Button variant="outline">SEE PRODUCT</Button>
+        </Link>
       </div>
       <picture>
         <source

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Container from "../shared/container";
 import Button from "../ui/button";
 
@@ -19,7 +20,9 @@ const HomeHero = () => {
             <br className="max-md:hidden" /> build quality made for the
             passionate music <br className="max-md:hidden" /> enthusiast.
           </p>
-          <Button variant="default">SEE PRODUCT</Button>
+          <Link href="/products/xx99-mark-two-headphones">
+            <Button variant="default">SEE PRODUCT</Button>
+          </Link>
         </div>
 
         <picture>

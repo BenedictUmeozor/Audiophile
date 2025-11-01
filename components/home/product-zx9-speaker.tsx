@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Container from "../shared/container";
 import Button from "../ui/button";
 
@@ -32,7 +33,9 @@ const ProductZX9Speaker = () => {
           <br className="hidden md:block" /> phenomenally built to deliver truly
           remarkable <br className="hidden md:block" /> sound.
         </p>
-        <Button variant="dark">SEE PRODUCT</Button>
+        <Link href="/products/zx9-speaker">
+          <Button variant="dark">SEE PRODUCT</Button>
+        </Link>
       </div>
     </Container>
   );

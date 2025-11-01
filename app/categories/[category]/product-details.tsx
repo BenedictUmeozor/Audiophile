@@ -47,7 +47,7 @@ const ProductDetails = ({
         <p className="text-[15px mb-10 leading-[25px] tracking-[0px] opacity-50 max-lg:mb-6">
           {product.description}
         </p>
-        <Link href={`/categories/${product.category}/products/${product.slug}`}>
+        <Link href={`/products/${product.slug}`}>
           <Button variant="default">SEE PRODUCT</Button>
         </Link>
       </div>
