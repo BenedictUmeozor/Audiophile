@@ -1,18 +1,21 @@
+import { cn } from "@/utils";
 import { ButtonHTMLAttributes } from "react";
 import ChevronRightIcon from "../icons/chevron-right-icon";
 
 const Button = ({
   variant = "default",
   children,
+  block = false,
   ...props
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "default" | "outline" | "shop" | "dark";
+  block?: boolean;
 }) => {
   if (variant === "outline") {
     return (
       <button
         {...props}
-        className="h-12 w-40 border border-black bg-transparent text-[13px] leading-[100%] font-bold tracking-[1px] text-black hover:bg-black hover:text-white transition-colors duration-150 ease-linear"
+        className="h-12 w-40 border border-black bg-transparent text-[13px] leading-[100%] font-bold tracking-[1px] text-black transition-colors duration-150 ease-linear hover:bg-black hover:text-white"
       >
         {children}
       </button>
@@ -47,7 +50,10 @@ const Button = ({
   return (
     <button
       {...props}
-      className="bg-primary hover:bg-primary-light h-12 w-40 text-[13px] leading-[100%] font-bold tracking-[1px] text-white uppercase transition-colors duration-150 ease-linear"
+      className={cn(
+        "bg-primary hover:bg-primary-light h-12 text-[13px] leading-[100%] font-bold tracking-[1px] text-white uppercase transition-colors duration-150 ease-linear",
+        block ? "w-full" : "w-40",
+      )}
     >
       {children}
     </button>

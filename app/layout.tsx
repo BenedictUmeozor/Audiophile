@@ -1,8 +1,11 @@
+import Cart from "@/components/shared/cart";
 import Footer from "@/components/shared/footer";
 import Header from "@/components/shared/header";
 import Menu from "@/components/ui/menu";
+import CartProvider from "@/context/cart-context";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -25,10 +28,14 @@ export default function RootLayout({
       <body
         className={`${manrope.className} grid min-h-screen grid-rows-[auto_1fr_auto] antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
-        <Menu />
+        <CartProvider>
+          <Header />
+          {children}
+          <Footer />
+          <Menu />
+          <Cart />
+        </CartProvider>
+        <Toaster />
       </body>
     </html>
   );

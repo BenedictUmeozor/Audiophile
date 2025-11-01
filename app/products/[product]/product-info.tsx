@@ -1,8 +1,32 @@
+"use client";
+
 import Button from "@/components/ui/button";
+import { useCartContext } from "@/context/cart-context";
 import Image from "next/image";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const ProductInfo = ({ product }: { product: T.Product }) => {
+  const [quantity, setQuantity] = useState(1);
   const productName = product.name.split(" ").slice(0, -1).join(" ");
+  const { dispatch } = useCartContext();
+
+  const increaseQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+  const decreaseQuantity = () => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  };
+
+  const addToCart = () => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: { product, quantity },
+    });
+    setQuantity(1);
+    toast.success("Product added to cart");
+  };
 
   return (
     <div className="grid grid-cols-[1fr_445.5px] items-center gap-x-[124.5px] max-lg:grid-cols-[281px_339.5px] max-lg:gap-x-[69px] max-md:grid-cols-1 max-md:gap-y-8">
@@ -37,17 +61,25 @@ const ProductInfo = ({ product }: { product: T.Product }) => {
         </p>
         <div className="flex items-center gap-x-4">
           <div className="bg-muted grid h-12 w-[120px] grid-cols-3">
-            <button className="hover:text-primary flex items-center justify-center text-[13px] leading-[100%] font-bold text-black/25 uppercase transition-colors duration-150 ease-linear">
+            <button
+              className="hover:text-primary flex items-center justify-center text-[13px] leading-[100%] font-bold text-black/25 uppercase transition-colors duration-150 ease-linear"
+              onClick={decreaseQuantity}
+            >
               -
             </button>
             <p className="flex items-center justify-center text-[13px] leading-[100%] font-bold">
-              1
+              {quantity}
             </p>
-            <button className="hover:text-primary flex items-center justify-center text-[13px] leading-[100%] font-bold text-black/25 uppercase transition-colors duration-150 ease-linear">
+            <button
+              className="hover:text-primary flex items-center justify-center text-[13px] leading-[100%] font-bold text-black/25 uppercase transition-colors duration-150 ease-linear"
+              onClick={increaseQuantity}
+            >
               +
             </button>
           </div>
-          <Button variant="default">ADD TO CART</Button>
+          <Button variant="default" onClick={addToCart}>
+            ADD TO CART
+          </Button>
         </div>
       </div>
     </div>

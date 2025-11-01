@@ -1,5 +1,16 @@
 declare global {
   namespace T {
+    type CartAction =
+      | {
+          type: "ADD_TO_CART";
+          payload: { product: T.Product; quantity: number };
+        }
+      | { type: "REMOVE_FROM_CART"; payload: { cartItemId: string } }
+      | { type: "CLEAR_CART" }
+      | { type: "INCREMENT_QUANTITY"; payload: { cartItemId: string } }
+      | { type: "DECREMENT_QUANTITY"; payload: { cartItemId: string } }
+      | { type: "SET_CART"; payload: { cart: T.Cart } };
+
     interface ImageSet {
       mobile: string;
       tablet: string;
@@ -35,6 +46,17 @@ declare global {
       name: string;
       images: ImageSet;
       products: Product[];
+    }
+
+    interface CartItem {
+      id: string;
+      product: Product;
+      quantity: number;
+    }
+
+    interface Cart {
+      items: CartItem[];
+      total: number;
     }
   }
 }

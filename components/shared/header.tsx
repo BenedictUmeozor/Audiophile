@@ -1,6 +1,7 @@
 "use client";
 
 import { CATEGORIES } from "@/constants/categories";
+import { useCartContext } from "@/context/cart-context";
 import { cn } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,10 +12,22 @@ import Container from "./container";
 
 const Header = () => {
   const pathname = usePathname();
+  const { cart } = useCartContext();
+
+  const productsLength = cart.items.reduce(
+    (acc, item) => acc + item.quantity,
+    0,
+  );
 
   const handleClick = () => {
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("toggle-menu"));
+    }
+  };
+
+  const handleCartClick = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("toggle-cart"));
     }
   };
 
@@ -25,7 +38,10 @@ const Header = () => {
         pathname === "/" ? "bg-[#191919]" : "bg-black",
       )}
     >
-      <Container className="flex items-center justify-between border-b border-b-white/20 pt-[35px] pb-9 max-lg:pt-8 max-lg:pb-8 max-md:border-b-0">
+      <Container
+        className="flex items-center justify-between border-b border-b-white/20 pt-[35px] pb-9 max-lg:pt-8 max-lg:pb-8 max-md:border-b-0"
+        addOverflow={false}
+      >
         <div className="items-center gap-x-[42px] max-lg:flex">
           <button className="lg:hidden" onClick={handleClick}>
             <HamburgerIcon />
@@ -79,8 +95,13 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <button>
+        <button onClick={handleCartClick} className="relative">
           <CartIcon />
+          {cart.items.length > 0 && (
+            <div className="bg-primary absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full text-[12px] text-white">
+              {productsLength}
+            </div>
+          )}
         </button>
       </Container>
     </header>
