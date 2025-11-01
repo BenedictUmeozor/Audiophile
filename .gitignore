@@ -42,3 +42,4 @@ next-env.d.ts
 /tasks
 .vscode/*
 .kiro
+task.md
