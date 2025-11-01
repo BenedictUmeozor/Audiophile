@@ -4,8 +4,8 @@ import Button from "../ui/button";
 
 const ProductZX7Speaker = () => {
   return (
-    <Container className="bg-muted relative mb-12 flex w-full items-center overflow-hidden rounded-lg py-[101px] max-lg:mb-8">
-      <div className="z-10 ml-[95px] max-lg:ml-[62px]">
+    <Container className="bg-muted relative mb-12 flex w-full items-center overflow-hidden rounded-lg py-[101px] max-lg:mb-8 max-md:mb-6">
+      <div className="z-10 ml-[95px] max-lg:ml-[62px] max-md:ml-6">
         <h2 className="mb-8 text-[28px] leading-[100%] font-bold tracking-[2px] text-black uppercase">
           ZX7 SPEAKER
         </h2>

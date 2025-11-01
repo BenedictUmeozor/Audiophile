@@ -9,10 +9,10 @@ import Container from "./container";
 const Footer = () => {
   return (
     <footer className="bg-dark">
-      <Container className="relative pt-[75px] pb-12 max-lg:pt-[60px] max-lg:pb-[46px]">
+      <Container className="relative pt-[75px] pb-12 max-lg:pt-[60px] max-lg:pb-[46px] max-md:pt-[52px] max-md:text-center">
         <div className="bg-primary absolute top-0 left-0 z-10 h-1 w-[101px]" />
-        <div className="mb-8 flex justify-between gap-y-8 max-lg:flex-col lg:items-center">
-          <Link href="/">
+        <div className="mb-8 flex justify-between gap-y-8 max-lg:flex-col max-md:mb-12 max-md:gap-y-12 lg:items-center">
+          <Link href="/" className="inline-block max-md:mx-auto">
             <Image
               src="/assets/logo.svg"
               alt="Logo"
@@ -22,7 +22,7 @@ const Footer = () => {
             />
           </Link>
           <nav>
-            <ul className="flex items-center gap-[34px]">
+            <ul className="flex items-center gap-x-[34px] gap-y-4 max-md:flex-col">
               <li>
                 <Link
                   href="/"
@@ -63,7 +63,7 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="items-center justify-between max-lg:flex">
+        <div className="items-center justify-between gap-y-12 max-lg:flex max-md:flex-col max-md:justify-center">
           <p className="text-[15px] leading-[25px] font-bold tracking-[0px] text-white opacity-50">
             Copyright 2021. All Rights Reserved
           </p>

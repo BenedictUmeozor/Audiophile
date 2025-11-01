@@ -9,13 +9,13 @@ import Container from "./container";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-99 bg-[#191919]">
-      <Container className="flex items-center justify-between border-b border-b-white/20 pt-[35px] pb-9">
+    <header className="sticky top-0 z-9999 bg-[#191919] max-md:border-b max-md:border-b-white/20">
+      <Container className="flex items-center justify-between border-b border-b-white/20 pt-[35px] pb-9 max-md:border-b-0">
         <div className="items-center gap-x-[42px] max-lg:flex">
           <button className="lg:hidden">
             <HamburgerIcon />
           </button>
-          <Link href="/">
+          <Link href="/" className="max-md:hidden">
             <Image
               src="/assets/logo.svg"
               alt="Logo"
@@ -25,6 +25,15 @@ const Header = () => {
             />
           </Link>
         </div>
+        <Link href="/" className="md:hidden">
+          <Image
+            src="/assets/logo.svg"
+            alt="Logo"
+            width={143}
+            height={25}
+            className="h-[25] w-[143]"
+          />
+        </Link>
         <nav className="hidden lg:block">
           <ul className="flex items-center gap-[34px]">
             <li>

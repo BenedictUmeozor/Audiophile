@@ -5,8 +5,8 @@ import Button from "../ui/button";
 const HomeHero = () => {
   return (
     <section className={`relative bg-[#191919]`}>
-      <Container className="relative flex h-screen items-center justify-start py-12 md:max-h-[665px]">
-        <div className="z-10 w-full md:text-center lg:text-left">
+      <Container className="relative flex h-screen items-center justify-start py-12 max-lg:max-h-[665px] max-md:max-h-[600px]">
+        <div className="z-10 w-full max-lg:text-center lg:text-left">
           <h5 className="mb-6 text-[14px] leading-[100%] font-normal tracking-[10px] text-white opacity-[49.64%]">
             NEW PRODUCT
           </h5>
@@ -14,9 +14,10 @@ const HomeHero = () => {
             XX99 Mark II <br />
             Headphones
           </h1>
-          <p className="mb-10 text-[15px] leading-[25px] font-medium tracking-[0] text-white opacity-75">
-            Experience natural, lifelike audio and exceptional <br /> build
-            quality made for the passionate music <br /> enthusiast.
+          <p className="mb-10 text-[15px] leading-[25px] font-medium tracking-[0] text-white opacity-75 max-md:mx-auto max-md:max-w-[328px]">
+            Experience natural, lifelike audio and exceptional{" "}
+            <br className="max-md:hidden" /> build quality made for the
+            passionate music <br className="max-md:hidden" /> enthusiast.
           </p>
           <Button variant="default">SEE PRODUCT</Button>
         </div>

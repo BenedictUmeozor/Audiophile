@@ -8,14 +8,14 @@ import Button from "../ui/button";
 const Categories = () => {
   return (
     <Container
-      className="flex items-center gap-x-2.5 max-lg:pt-24 max-lg:pb-24 lg:gap-x-[30px] lg:pt-[120px] lg:pb-[168px]"
+      className="flex items-center gap-x-2.5 gap-y-[68px] max-lg:pt-24 max-lg:pb-24 max-md:flex-col max-md:pt-[125px] max-md:pb-[120px] lg:gap-x-[30px] lg:pt-[120px] lg:pb-[168px]"
       addOverflow={false}
     >
       {CATEGORIES.map((category, index) => (
         <Link
           key={category.name}
           href={`/categories/${category.slug}`}
-          className="bg-muted group relative flex flex-1 cursor-pointer flex-col items-center justify-center gap-9 rounded-lg max-lg:p-[22px] max-lg:pt-[88px] lg:p-[30px] lg:pt-[116px]"
+          className="bg-muted group relative flex w-full flex-1 cursor-pointer flex-col items-center justify-center gap-9 rounded-lg max-lg:p-[22px] max-lg:pt-[88px] lg:p-[30px] lg:pt-[116px]"
         >
           <Image
             src={`/assets/shared/desktop/image-category-thumbnail-${category.slug}.png`}
@@ -27,7 +27,7 @@ const Categories = () => {
               index === 1 &&
                 "max-lg:h-[101px] max-lg:w-[84.04px] lg:h-[146px] lg:w-[121.49px]",
               index === 2 &&
-                "max-lg:h-[104px] max-lg:w-[103px] lg:h-[126px] lg:w-[125px]",
+                "max-lg:h-[104px] max-lg:w-[103] lg:h-[126px] lg:w-[125px]",
             )}
             width={150}
             height={160}

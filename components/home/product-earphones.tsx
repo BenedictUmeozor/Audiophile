@@ -4,8 +4,8 @@ import Button from "../ui/button";
 
 const ProductEarphones = () => {
   return (
-    <Container className="mb-[200px] grid grid-cols-2 gap-x-[30px] max-lg:mb-24 max-lg:gap-x-[11px]">
-      <div className="flex h-80 items-center justify-center overflow-hidden rounded-lg">
+    <Container className="mb-[200px] grid grid-cols-2 gap-x-[30px] gap-y-6 max-lg:mb-24 max-lg:gap-x-[11px] max-md:mb-[120px] max-md:grid-cols-1">
+      <div className="flex h-80 items-center justify-center overflow-hidden rounded-lg max-md:h-[200px]">
         <picture>
           <source
             media="(min-width: 1024px)"
@@ -24,7 +24,7 @@ const ProductEarphones = () => {
           />
         </picture>
       </div>
-      <div className="bg-muted flex items-center rounded-lg">
+      <div className="bg-muted flex items-center rounded-lg max-md:h-[200px]">
         <div className="z-10 ml-[95px] max-lg:ml-[41px]">
           <h2 className="mb-8 text-[28px] leading-[100%] font-bold tracking-[2px] text-black uppercase">
             YX1 EARPHONES

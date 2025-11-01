@@ -1,5 +1,6 @@
 import Footer from "@/components/shared/footer";
 import Header from "@/components/shared/header";
+import Menu from "@/components/ui/menu";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
@@ -21,10 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} antialiased`}>
+      <body className={`${manrope.className} relative antialiased`}>
         <Header />
         {children}
         <Footer />
+        <Menu />
       </body>
     </html>
   );

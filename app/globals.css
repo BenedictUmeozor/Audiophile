@@ -24,7 +24,7 @@
 }
 
 @utility h1 {
-  @apply text-[56px] leading-[58px] font-bold tracking-[2px] uppercase;
+  @apply text-[56px] leading-[58px] font-bold tracking-[2px] uppercase max-md:text-[36px] max-md:leading-10 max-md:tracking-[1.29px];
 }
 
 @utility h2 {
