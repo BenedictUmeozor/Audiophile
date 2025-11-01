@@ -5,7 +5,7 @@ import Image from "next/image";
 const Summary = () => {
   const { cart } = useCartContext();
 
-  const VAT = cart.total * 0.2;
+  const VAT = Math.floor(cart.total * 0.2);
   const SHIPPING = 50;
   const GRAND_TOTAL = cart.total + VAT + SHIPPING;
 
@@ -92,7 +92,7 @@ const Summary = () => {
           $ {GRAND_TOTAL.toLocaleString()}
         </span>
       </div>
-      <Button variant="default" block>
+      <Button variant="default" block disabled={cart.items.length === 0}>
         CONTINUE & PAY
       </Button>
     </div>

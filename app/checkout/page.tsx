@@ -1,6 +1,7 @@
 "use client";
 
 import Container from "@/components/shared/container";
+import OrderConfirmation from "@/components/ui/order-confirmation";
 import { formSchema } from "@/lib/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -42,6 +43,7 @@ export default function Page() {
           <Summary />
         </form>
       </Container>
+      <OrderConfirmation />
     </main>
   );
 }
