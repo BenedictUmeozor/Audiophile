@@ -20,7 +20,7 @@ const HomeHero = () => {
             <br className="max-md:hidden" /> build quality made for the
             passionate music <br className="max-md:hidden" /> enthusiast.
           </p>
-          <Link href="/products/xx99-mark-two-headphones">
+          <Link href="/categories/headphones/products/xx99-mark-two-headphones">
             <Button variant="default">SEE PRODUCT</Button>
           </Link>
         </div>

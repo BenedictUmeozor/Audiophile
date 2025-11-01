@@ -33,7 +33,7 @@ const ProductZX9Speaker = () => {
           <br className="hidden md:block" /> phenomenally built to deliver truly
           remarkable <br className="hidden md:block" /> sound.
         </p>
-        <Link href="/products/zx9-speaker">
+        <Link href="/categories/speakers/products/zx9-speaker">
           <Button variant="dark">SEE PRODUCT</Button>
         </Link>
       </div>
