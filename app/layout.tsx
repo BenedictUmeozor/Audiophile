@@ -3,7 +3,6 @@ import Header from "@/components/shared/header";
 import Menu from "@/components/ui/menu";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -30,7 +29,6 @@ export default function RootLayout({
         {children}
         <Footer />
         <Menu />
-        <NextTopLoader showSpinner={false} color="#d87d4a" />
       </body>
     </html>
   );

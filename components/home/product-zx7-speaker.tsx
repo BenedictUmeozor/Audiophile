@@ -10,7 +10,7 @@ const ProductZX7Speaker = () => {
         <h2 className="mb-8 text-[28px] leading-[100%] font-bold tracking-[2px] text-black uppercase">
           ZX7 SPEAKER
         </h2>
-        <Link href="/categories/speakers/products/zx7-speaker">
+        <Link href="/products/zx7-speaker">
           <Button variant="outline">SEE PRODUCT</Button>
         </Link>
       </div>

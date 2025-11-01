@@ -6,11 +6,9 @@ import Link from "next/link";
 const ProductDetails = ({
   product,
   evenOrder,
-  index,
 }: {
   product: T.Product;
   evenOrder: boolean;
-  index: number;
 }) => {
   const productName = product.name.split(" ").slice(0, -1).join(" ");
 
@@ -35,7 +33,7 @@ const ProductDetails = ({
         </picture>
       </div>
       <div className={cn("max-lg:text-center", !evenOrder && "lg:order-1")}>
-        {index === 0 && (
+        {product.new && (
           <h6 className="text-primary mb-4 text-[14px] leading-[100%] font-normal tracking-[10px] uppercase max-md:mb-6">
             NEW PRODUCT
           </h6>
@@ -47,7 +45,7 @@ const ProductDetails = ({
         <p className="text-[15px mb-10 leading-[25px] tracking-[0px] opacity-50 max-lg:mb-6">
           {product.description}
         </p>
-        <Link href={`/categories/${product.category}/products/${product.slug}`}>
+        <Link href={`/products/${product.slug}`}>
           <Button variant="default">SEE PRODUCT</Button>
         </Link>
       </div>

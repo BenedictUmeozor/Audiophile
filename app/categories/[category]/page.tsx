@@ -35,7 +35,6 @@ export default async function Page({
             key={product.id}
             product={product}
             evenOrder={index % 2 === 0}
-            index={index}
           />
         ))}
       </Container>
