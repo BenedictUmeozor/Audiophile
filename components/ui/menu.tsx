@@ -72,6 +72,7 @@ const Menu = () => {
               key={category.name}
               href={`/categories/${category.slug}`}
               className="bg-muted group relative flex w-full flex-1 cursor-pointer flex-col items-center justify-center gap-9 rounded-lg max-lg:p-[22px] max-lg:pt-[88px] lg:p-[30px] lg:pt-[116px]"
+              onClick={() => setOpen(false)}
             >
               <Image
                 src={`/assets/shared/desktop/image-category-thumbnail-${category.slug}.png`}

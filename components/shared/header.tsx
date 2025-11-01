@@ -1,13 +1,17 @@
 "use client";
 
 import { CATEGORIES } from "@/constants/categories";
+import { cn } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import CartIcon from "../icons/cart-icon";
 import HamburgerIcon from "../icons/hamburger-icon";
 import Container from "./container";
 
 const Header = () => {
+  const pathname = usePathname();
+
   const handleClick = () => {
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("toggle-menu"));
@@ -15,8 +19,13 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-9999 bg-[#191919] max-md:border-b max-md:border-b-white/20">
-      <Container className="flex items-center justify-between border-b border-b-white/20 pt-[35px] pb-9 max-md:border-b-0">
+    <header
+      className={cn(
+        "sticky top-0 z-9999 max-md:border-b max-md:border-b-white/20",
+        pathname === "/" ? "bg-[#191919]" : "bg-black",
+      )}
+    >
+      <Container className="flex items-center justify-between border-b border-b-white/20 pt-[35px] pb-9 max-lg:pt-8 max-lg:pb-8 max-md:border-b-0">
         <div className="items-center gap-x-[42px] max-lg:flex">
           <button className="lg:hidden" onClick={handleClick}>
             <HamburgerIcon />
@@ -45,7 +54,10 @@ const Header = () => {
             <li>
               <Link
                 href="/"
-                className="hover:text-primary text-[13px] leading-[25px] font-bold tracking-[2px] text-white uppercase transition-colors duration-150 ease-linear"
+                className={cn(
+                  "hover:text-primary text-[13px] leading-[25px] font-bold tracking-[2px] uppercase transition-colors duration-150 ease-linear",
+                  pathname === "/" ? "text-primary" : "text-white",
+                )}
               >
                 HOME
               </Link>
@@ -54,7 +66,12 @@ const Header = () => {
               <li key={category.name}>
                 <Link
                   href={`/categories/${category.slug}`}
-                  className="hover:text-primary text-[13px] leading-[25px] font-bold tracking-[2px] text-white uppercase transition-colors duration-150 ease-linear"
+                  className={cn(
+                    "hover:text-primary text-[13px] leading-[25px] font-bold tracking-[2px] uppercase transition-colors duration-150 ease-linear",
+                    pathname.includes(category.slug)
+                      ? "text-primary"
+                      : "text-white",
+                  )}
                 >
                   {category.name}
                 </Link>

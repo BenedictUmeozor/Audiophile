@@ -3,6 +3,7 @@ import Header from "@/components/shared/header";
 import Menu from "@/components/ui/menu";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -22,11 +23,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} antialiased`}>
+      <body
+        className={`${manrope.className} grid min-h-screen grid-rows-[auto_1fr_auto] antialiased`}
+      >
         <Header />
         {children}
         <Footer />
         <Menu />
+        <NextTopLoader showSpinner={false} color="#d87d4a" />
       </body>
     </html>
   );

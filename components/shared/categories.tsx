@@ -5,10 +5,21 @@ import Link from "next/link";
 import Container from "../shared/container";
 import Button from "../ui/button";
 
-const Categories = () => {
+const Categories = ({
+  isHome = false,
+  className = "",
+}: {
+  isHome?: boolean;
+  className?: string;
+}) => {
   return (
     <Container
-      className="flex items-center gap-x-2.5 gap-y-[68px] max-lg:pt-24 max-lg:pb-24 max-md:flex-col max-md:pt-[125px] max-md:pb-[120px] lg:gap-x-[30px] lg:pt-[120px] lg:pb-[168px]"
+      className={cn(
+        "flex items-center gap-x-2.5 gap-y-[68px] max-md:flex-col lg:gap-x-[30px]",
+        className,
+        isHome &&
+          "max-lg:pt-24 max-lg:pb-24 max-md:pt-[125px] max-md:pb-[120px] lg:pt-[120px] lg:pb-[168px]",
+      )}
       addOverflow={false}
     >
       {CATEGORIES.map((category, index) => (
