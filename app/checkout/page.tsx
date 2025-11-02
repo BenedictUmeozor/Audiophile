@@ -1,5 +1,6 @@
 "use client";
 
+import { sendOrderEmail } from "@/app/actions/send-order-email";
 import Container from "@/components/shared/container";
 import OrderConfirmation from "@/components/ui/order-confirmation";
 import { useCartContext } from "@/context/cart-context";
@@ -95,32 +96,28 @@ export default function Page() {
       });
       window.dispatchEvent(event);
 
-      // Send order confirmation email
+      // Send order confirmation email using server action
       try {
-        await fetch("/api/send-order-email", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            customerName: values.name,
-            customerEmail: values.email,
-            orderNumber: order?.orderNumber,
-            items: items,
-            subtotal: subtotal,
-            shipping: shipping,
-            vat: vat,
-            grandTotal: grandTotal,
-            shippingAddress: values.address,
-            shippingCity: values.city,
-            shippingZipCode: values.zipCode,
-            shippingCountry: values.country,
-            orderId: order?._id,
-          }),
+        const emailResult = await sendOrderEmail({
+          customerName: values.name,
+          customerEmail: values.email,
+          orderNumber: order?.orderNumber || "",
+          items: items,
+          subtotal: subtotal,
+          shipping: shipping,
+          vat: vat,
+          grandTotal: grandTotal,
+          shippingAddress: values.address,
+          shippingCity: values.city,
+          shippingZipCode: values.zipCode,
+          shippingCountry: values.country,
+          orderId: order?._id || "",
         });
-        console.log("Order confirmation email sent");
+
+        if (!emailResult.success) {
+          toast.error("Failed to send order confirmation email.");
+        }
       } catch (emailError) {
-        console.error("Failed to send email:", emailError);
         // Don't show error to user - order was still created successfully
       }
     } catch (error) {

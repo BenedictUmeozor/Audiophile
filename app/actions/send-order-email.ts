@@ -1,11 +1,31 @@
-import { NextResponse } from "next/server";
+"use server";
+
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: Request) {
+interface SendOrderEmailParams {
+  customerName: string;
+  customerEmail: string;
+  orderNumber: string;
+  items: Array<{
+    productName: string;
+    price: number;
+    quantity: number;
+  }>;
+  subtotal: number;
+  shipping: number;
+  vat: number;
+  grandTotal: number;
+  shippingAddress: string;
+  shippingCity: string;
+  shippingZipCode: string;
+  shippingCountry: string;
+  orderId: string;
+}
+
+export async function sendOrderEmail(params: SendOrderEmailParams) {
   try {
-    const body = await request.json();
     const {
       customerName,
       customerEmail,
@@ -20,18 +40,18 @@ export async function POST(request: Request) {
       shippingZipCode,
       shippingCountry,
       orderId,
-    } = body;
+    } = params;
 
     // Generate order items HTML
     const itemsHTML = items
       .map(
-        (item: any) => `
+        (item) => `
         <tr>
           <td style="padding: 12px; font-size: 14px; border-bottom: 1px solid #f1f1f1; color: #101010;">${item.productName}</td>
           <td align="center" style="padding: 12px; font-size: 14px; border-bottom: 1px solid #f1f1f1; color: #101010;">${item.quantity}</td>
           <td align="right" style="padding: 12px; font-size: 14px; border-bottom: 1px solid #f1f1f1; color: #101010;">$${item.price.toLocaleString()}</td>
         </tr>
-      `,
+      `
       )
       .join("");
 
@@ -41,7 +61,6 @@ export async function POST(request: Request) {
     // Order view URL
     const orderURL = `https://audiophile-hng.vercel.app/orders/${orderId}`;
 
-    // Email HTML template with inline styles for better email client support
     const emailHTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,15 +144,11 @@ ${itemsHTML}
 
     if (error) {
       console.error("Error sending email:", error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return { success: false, error: error.message };
     }
 
-    return NextResponse.json({ success: true, data });
+    return { success: true, data };
   } catch (error: any) {
-    console.error("Error in send-order-email API:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to send email" },
-      { status: 500 },
-    );
+    return { success: false, error: error.message || "Failed to send email" };
   }
 }
