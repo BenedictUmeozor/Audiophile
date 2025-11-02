@@ -78,7 +78,6 @@ export default function Page() {
       });
 
       toast.success("Order placed successfully!");
-      console.log("Order created:", order);
 
       // Prepare order data for confirmation modal (before clearing cart)
       const orderConfirmationData = {
@@ -125,7 +124,6 @@ export default function Page() {
         // Don't show error to user - order was still created successfully
       }
     } catch (error) {
-      console.error("Error creating order:", error);
       toast.error("Failed to place order. Please try again.");
     } finally {
       setIsSubmitting(false);
