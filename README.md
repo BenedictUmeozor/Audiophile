@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Audiophile E-Commerce
+
+A pixel-perfect, fully responsive e-commerce website for premium audio equipment built with Next.js 16, Convex, and TypeScript.
+
+## Features
+
+- 🎨 Pixel-perfect design implementation from Figma
+- 📱 Fully responsive (mobile, tablet, desktop)
+- 🛒 Shopping cart with local storage persistence
+- 💳 Complete checkout flow with form validation
+- 📧 Order confirmation emails via Resend
+- 🗄️ Real-time database with Convex
+- ♿ Fully accessible (WCAG compliant)
+- ⚡ Server Actions for email sending
+- 🎯 TypeScript for type safety
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Database:** Convex
+- **Email:** Resend
+- **Forms:** React Hook Form + Zod
+- **State Management:** React Context API
+- **Deployment:** Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn package manager
+- A Convex account (free tier available)
+- A Resend account (free tier available)
+
+### Installation
+
+1. **Clone the repository**
+
+```bash
+git clone <your-repo-url>
+cd audiophile
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+```
+
+3. **Set up environment variables**
+
+Create a `.env.local` file in the root directory:
+
+```env
+# Convex
+CONVEX_DEPLOYMENT=<your-convex-deployment>
+NEXT_PUBLIC_CONVEX_URL=<your-convex-url>
+
+# Resend
+RESEND_API_KEY=<your-resend-api-key>
+
+# App URL (for production)
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+**Getting your environment variables:**
+
+- **Convex:**
+  1. Sign up at [convex.dev](https://convex.dev)
+  2. Run `npx convex dev` in your project
+  3. Follow the prompts to create a new project
+  4. The CLI will automatically add the variables to `.env.local`
+
+- **Resend:**
+  1. Sign up at [resend.com](https://resend.com)
+  2. Go to API Keys section
+  3. Create a new API key
+  4. Add it to `.env.local` as `RESEND_API_KEY`
+
+4. **Initialize Convex**
+
+```bash
+npx convex dev
+```
+
+This will:
+- Push your schema to Convex
+- Generate TypeScript types
+- Start the Convex development server
+
+5. **Run the development server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+audiophile/
+├── app/
+│   ├── actions/          # Server actions
+│   ├── categories/       # Category pages
+│   ├── checkout/         # Checkout flow
+│   ├── orders/          # Order details pages
+│   └── products/        # Product pages
+├── components/
+│   ├── icons/           # SVG icon components
+│   ├── shared/          # Shared components
+│   └── ui/              # UI components
+├── constants/           # Static data
+├── context/            # React context providers
+├── convex/             # Convex backend
+│   ├── schema.ts       # Database schema
+│   └── orders.ts       # Order mutations/queries
+├── lib/                # Utilities
+├── public/             # Static assets
+└── utils/              # Helper functions
+```
 
-## Learn More
+## Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npx convex dev` - Start Convex development server
+- `npx convex deploy` - Deploy Convex functions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Key Features Implementation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Shopping Cart
+- Persistent cart using localStorage
+- Add/remove items
+- Quantity management
+- Real-time total calculation
 
-## Deploy on Vercel
+### Checkout
+- Multi-step form with validation
+- Payment method selection (e-Money / Cash on Delivery)
+- Real-time error feedback
+- Accessible form controls
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Order Management
+- Orders stored in Convex database
+- Order confirmation emails
+- Order details page
+- Order status tracking
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Accessibility
+- ARIA labels and roles
+- Keyboard navigation
+- Screen reader support
+- Focus management
+- Error announcements
+
+## Environment Variables Reference
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `CONVEX_DEPLOYMENT` | Convex deployment ID | Yes |
+| `NEXT_PUBLIC_CONVEX_URL` | Convex public URL | Yes |
+| `RESEND_API_KEY` | Resend API key for emails | Yes |
+| `NEXT_PUBLIC_APP_URL` | Your app URL (for emails) | Production only |
+
+## Deployment
+
+### Deploy to Vercel
+
+1. Push your code to GitHub
+2. Import your repository on [Vercel](https://vercel.com)
+3. Add environment variables in Vercel dashboard
+4. Deploy!
+
+### Deploy Convex Functions
+
+```bash
+npx convex deploy
+```
+
+Update your `.env.local` with the production Convex URL.
+
+## 👤 Author
+
+**Benedict Umeozor**  
+GitHub: [@BenedictUmeozor](https://github.com/BenedictUmeozor)
