@@ -1,198 +1,374 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order Confirmation – Sample</title>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
-    <style>
-      body,
-      table,
-      td,
-      p,
-      a {
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-      }
-      table {
-        border-collapse: collapse !important;
-      }
-      img {
-        border: 0;
-        height: auto;
-        line-height: 100%;
-        outline: none;
-        text-decoration: none;
-      }
-      :root {
-        --primary: #d87d4a;
-        --dark: #101010;
-        --muted: #f1f1f1;
-        --offwhite: #fafafa;
-      }
-      body {
-        width: 100% !important;
-        height: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        background-color: var(--offwhite);
-        font-family: 'Manrope', Arial, sans-serif;
-        color: var(--dark);
-      }
-      a {
-        color: var(--primary);
-        text-decoration: none;
-      }
-      .container {
-        width: 100%;
-        background-color: var(--offwhite);
-        padding: 30px 0;
-      }
-      .main {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #ffffff;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      .header {
-        background-color: var(--dark);
-        padding: 24px;
-        text-align: center;
-      }
-      .header img {
-        height: 25px;
-      }
-      .title {
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 32px;
-        margin: 0 0 16px;
-        text-align: left;
-      }
-      .paragraph {
-        font-size: 15px;
-        line-height: 25px;
-        margin: 0 0 24px;
-      }
-      .summary-table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-      .summary-table th {
-        text-align: left;
-        padding: 12px;
-        background-color: var(--muted);
-        font-size: 13px;
-      }
-      .summary-table td {
-        padding: 12px;
-        font-size: 14px;
-        border-bottom: 1px solid var(--muted);
-      }
-      .totals {
-        padding: 24px;
-        background-color: var(--muted);
-      }
-      .totals-row {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-      }
-      .totals-row strong {
-        font-weight: 700;
-      }
-      .cta {
-        text-align: center;
-        padding: 32px;
-      }
-      .btn {
-        background-color: var(--primary);
-        color: #ffffff !important;
-        font-size: 13px;
-        font-weight: 700;
-        padding: 12px 24px;
-        text-transform: uppercase;
-        border-radius: 4px;
-        display: inline-block;
-      }
-      .footer {
-        font-size: 12px;
-        color: #6b6b6b;
-        text-align: center;
-        padding: 24px 0 0;
-      }
-      @media only screen and (max-width: 620px) {
-        .main {
-          max-width: 90% !important;
-        }
-        .title {
-          font-size: 20px !important;
-          line-height: 28px !important;
-        }
-      }
-    </style>
   </head>
-  <body>
-    <div class="container">
-      <table class="main" role="presentation" cellpadding="0" cellspacing="0" width="600">
-        <tr>
-          <td class="header">
-            <img src="/assets/logo.svg" alt="Audiophile logo" />
-          </td>
-        </tr>
-        <tr>
-          <td style="padding: 32px;">
-            <p class="title">Thank you for your order, John Doe!</p>
-            <p class="paragraph">
-              We’re happy to let you know that we’ve received your purchase (Order
-              <strong>#ABX12345</strong>). Below is a summary of your order.
-            </p>
-            <table class="summary-table" cellpadding="0" cellspacing="0" role="presentation">
-              <thead>
-                <tr>
-                  <th align="left">Product</th>
-                  <th align="center">Qty</th>
-                  <th align="right">Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>ZX9 Speaker</td>
-                  <td align="center">1</td>
-                  <td align="right">$4,500</td>
-                </tr>
-                <tr>
-                  <td>XX99 Mark II</td>
-                  <td align="center">2</td>
-                  <td align="right">$2,999</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="totals">
-              <div class="totals-row"><span>Subtotal</span><strong>$10,498</strong></div>
-              <div class="totals-row" style="margin-top: 8px;"><span>Shipping</span><strong>$50</strong></div>
-              <div class="totals-row" style="margin-top: 8px;"><span>VAT (20%)</span><strong>$2,109.60</strong></div>
-              <div class="totals-row" style="margin-top: 12px; font-size: 16px;"><span>Grand Total</span><strong>$12,657.60</strong></div>
-            </div>
-            <h3 style="margin: 32px 0 12px; font-size: 16px; font-weight: 700;">Shipping details</h3>
-            <p class="paragraph" style="margin: 0;">135 Maple Avenue, Los Angeles, CA 90001, USA</p>
-            <div class="cta">
-              <a href="https://audiophile-hng.vercel.app/orders/ABX12345" class="btn">View your order</a>
-            </div>
-            <p class="paragraph" style="margin-top: 24px;">
-              If you have any questions, simply reply to this email or reach out
-              to us at
-              <a href="mailto:support@audiophile.com">support@audiophile.com</a>.
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td class="footer">© 2025 Audiophile. All rights reserved.</td>
-        </tr>
-      </table>
-    </div>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      font-family: Arial, sans-serif;
+    "
+  >
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      style="background-color: #fafafa; padding: 30px 0"
+    >
+      <tr>
+        <td align="center">
+          <table
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            style="
+              background-color: #ffffff;
+              border-radius: 8px;
+              overflow: hidden;
+              max-width: 600px;
+            "
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background-color: #101010;
+                  padding: 24px;
+                  text-align: center;
+                "
+              >
+                <img
+                  src="https://audiophile-hng.vercel.app/assets/logo.svg"
+                  alt="Audiophile"
+                  style="height: 25px"
+                />
+              </td>
+            </tr>
+            <!-- Content -->
+            <tr>
+              <td style="padding: 32px">
+                <h1
+                  style="
+                    font-size: 24px;
+                    font-weight: 700;
+                    line-height: 32px;
+                    margin: 0 0 16px;
+                    color: #101010;
+                  "
+                >
+                  Thank you for your order, John Doe!
+                </h1>
+                <p
+                  style="
+                    font-size: 15px;
+                    line-height: 25px;
+                    margin: 0 0 24px;
+                    color: #101010;
+                  "
+                >
+                  We're happy to let you know that we've received your purchase
+                  (Order <strong>#ABX12345</strong>). Below is a summary of your
+                  order.
+                </p>
+
+                <!-- Order Items Table -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="margin-bottom: 24px"
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        align="left"
+                        style="
+                          padding: 12px;
+                          background-color: #f1f1f1;
+                          font-size: 13px;
+                          font-weight: 700;
+                          color: #101010;
+                        "
+                      >
+                        Product
+                      </th>
+                      <th
+                        align="center"
+                        style="
+                          padding: 12px;
+                          background-color: #f1f1f1;
+                          font-size: 13px;
+                          font-weight: 700;
+                          color: #101010;
+                        "
+                      >
+                        Qty
+                      </th>
+                      <th
+                        align="right"
+                        style="
+                          padding: 12px;
+                          background-color: #f1f1f1;
+                          font-size: 13px;
+                          font-weight: 700;
+                          color: #101010;
+                        "
+                      >
+                        Price
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        style="
+                          padding: 12px;
+                          font-size: 14px;
+                          border-bottom: 1px solid #f1f1f1;
+                          color: #101010;
+                        "
+                      >
+                        ZX9 Speaker
+                      </td>
+                      <td
+                        align="center"
+                        style="
+                          padding: 12px;
+                          font-size: 14px;
+                          border-bottom: 1px solid #f1f1f1;
+                          color: #101010;
+                        "
+                      >
+                        1
+                      </td>
+                      <td
+                        align="right"
+                        style="
+                          padding: 12px;
+                          font-size: 14px;
+                          border-bottom: 1px solid #f1f1f1;
+                          color: #101010;
+                        "
+                      >
+                        $4,500
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        style="
+                          padding: 12px;
+                          font-size: 14px;
+                          border-bottom: 1px solid #f1f1f1;
+                          color: #101010;
+                        "
+                      >
+                        XX99 Mark II
+                      </td>
+                      <td
+                        align="center"
+                        style="
+                          padding: 12px;
+                          font-size: 14px;
+                          border-bottom: 1px solid #f1f1f1;
+                          color: #101010;
+                        "
+                      >
+                        2
+                      </td>
+                      <td
+                        align="right"
+                        style="
+                          padding: 12px;
+                          font-size: 14px;
+                          border-bottom: 1px solid #f1f1f1;
+                          color: #101010;
+                        "
+                      >
+                        $2,999
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <!-- Totals -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  style="
+                    background-color: #f1f1f1;
+                    padding: 24px;
+                    margin-bottom: 24px;
+                  "
+                >
+                  <tr>
+                    <td
+                      style="
+                        font-size: 14px;
+                        color: #101010;
+                        padding-bottom: 8px;
+                      "
+                    >
+                      Subtotal
+                    </td>
+                    <td
+                      align="right"
+                      style="
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #101010;
+                        padding-bottom: 8px;
+                      "
+                    >
+                      $10,498
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        font-size: 14px;
+                        color: #101010;
+                        padding-bottom: 8px;
+                      "
+                    >
+                      Shipping
+                    </td>
+                    <td
+                      align="right"
+                      style="
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #101010;
+                        padding-bottom: 8px;
+                      "
+                    >
+                      $50
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        font-size: 14px;
+                        color: #101010;
+                        padding-bottom: 12px;
+                      "
+                    >
+                      VAT (20%)
+                    </td>
+                    <td
+                      align="right"
+                      style="
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #101010;
+                        padding-bottom: 12px;
+                      "
+                    >
+                      $2,109.60
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="font-size: 16px; font-weight: 700; color: #101010"
+                    >
+                      Grand Total
+                    </td>
+                    <td
+                      align="right"
+                      style="font-size: 16px; font-weight: 700; color: #101010"
+                    >
+                      $12,657.60
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Shipping Details -->
+                <h3
+                  style="
+                    margin: 0 0 12px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    color: #101010;
+                  "
+                >
+                  Shipping details
+                </h3>
+                <p
+                  style="
+                    font-size: 15px;
+                    line-height: 25px;
+                    margin: 0 0 32px;
+                    color: #101010;
+                  "
+                >
+                  135 Maple Avenue, Los Angeles, CA 90001, USA
+                </p>
+
+                <!-- CTA Button -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tr>
+                    <td align="center" style="padding: 32px 0">
+                      <a
+                        href="https://audiophile-hng.vercel.app/orders/ABX12345"
+                        style="
+                          background-color: #d87d4a;
+                          color: #ffffff;
+                          font-size: 13px;
+                          font-weight: 700;
+                          padding: 12px 24px;
+                          text-transform: uppercase;
+                          text-decoration: none;
+                          border-radius: 4px;
+                          display: inline-block;
+                        "
+                        >VIEW YOUR ORDER</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+
+                <p
+                  style="
+                    font-size: 15px;
+                    line-height: 25px;
+                    margin: 24px 0 0;
+                    color: #101010;
+                  "
+                >
+                  If you have any questions, simply reply to this email or reach
+                  out to us at
+                  <a
+                    href="mailto:support@audiophile.com"
+                    style="color: #d87d4a; text-decoration: none"
+                    >support@audiophile.com</a
+                  >.
+                </p>
+              </td>
+            </tr>
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  font-size: 12px;
+                  color: #6b6b6b;
+                  text-align: center;
+                  padding: 24px;
+                "
+              >
+                © 2025 Audiophile. All rights reserved.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

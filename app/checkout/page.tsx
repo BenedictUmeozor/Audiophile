@@ -96,7 +96,34 @@ export default function Page() {
       });
       window.dispatchEvent(event);
 
-      // TODO: send email
+      // Send order confirmation email
+      try {
+        await fetch("/api/send-order-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            customerName: values.name,
+            customerEmail: values.email,
+            orderNumber: order?.orderNumber,
+            items: items,
+            subtotal: subtotal,
+            shipping: shipping,
+            vat: vat,
+            grandTotal: grandTotal,
+            shippingAddress: values.address,
+            shippingCity: values.city,
+            shippingZipCode: values.zipCode,
+            shippingCountry: values.country,
+            orderId: order?._id,
+          }),
+        });
+        console.log("Order confirmation email sent");
+      } catch (emailError) {
+        console.error("Failed to send email:", emailError);
+        // Don't show error to user - order was still created successfully
+      }
     } catch (error) {
       console.error("Error creating order:", error);
       toast.error("Failed to place order. Please try again.");
