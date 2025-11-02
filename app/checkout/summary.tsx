@@ -14,18 +14,22 @@ const Summary = ({ isSubmitting = false }: SummaryProps) => {
   const GRAND_TOTAL = cart.total + VAT + SHIPPING;
 
   return (
-    <div className="rounded-lg bg-white px-[33px] py-8 max-md:px-6">
+    <div
+      className="rounded-lg bg-white px-[33px] py-8 max-md:px-6"
+      role="region"
+      aria-label="Order summary"
+    >
       <h5 className="text-[18px] leading-[100%] font-bold tracking-[1.29px]">
         SUMMARY
       </h5>
-      <div className="mt-[31px] mb-8 space-y-6">
+      <div className="mt-[31px] mb-8 space-y-6" role="list">
         {cart.items.map((item) => {
           const productName = item.product.name
             .split(" ")
             .slice(0, -1)
             .join(" ");
           return (
-            <div key={item.id} className="flex items-center gap-x-4">
+            <div key={item.id} className="flex items-center gap-x-4" role="listitem">
               <div className="bg-muted flex h-16 w-16 items-center justify-center overflow-hidden rounded-lg">
                 <picture>
                   <source
@@ -100,6 +104,14 @@ const Summary = ({ isSubmitting = false }: SummaryProps) => {
         variant="default"
         block
         disabled={cart.items.length === 0 || isSubmitting}
+        type="submit"
+        aria-label={
+          isSubmitting
+            ? "Processing order"
+            : cart.items.length === 0
+              ? "Cart is empty"
+              : "Continue to payment"
+        }
       >
         {isSubmitting ? (
           <span className="flex items-center justify-center gap-x-2">
@@ -108,6 +120,7 @@ const Summary = ({ isSubmitting = false }: SummaryProps) => {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
+              aria-hidden="true"
             >
               <circle
                 className="opacity-25"

@@ -19,11 +19,11 @@ const CheckoutForm = ({
       <h2 className="mb-8 text-[32px] leading-9 font-bold tracking-[1.14px] max-md:mb-6 max-md:text-[28px] max-md:leading-[100%] max-md:tracking-[1px]">
         CHECKOUT
       </h2>
-      <section className="mt-[41px] space-y-[53px]">
-        <div className="space-y-4">
-          <h6 className="text-primary text-[13px] leading-[25px] font-bold tracking-[0.93px]">
+      <div className="mt-[41px] space-y-[53px]">
+        <fieldset className="space-y-4">
+          <legend className="text-primary text-[13px] leading-[25px] font-bold tracking-[0.93px]">
             BILLING DETAILS
-          </h6>
+          </legend>
           <div className="grid grid-cols-2 gap-x-4 gap-y-6 max-md:grid-cols-1">
             <Controller
               control={control}
@@ -41,15 +41,21 @@ const CheckoutForm = ({
                       Name
                     </label>
                     {fieldState.error && (
-                      <span className="text-danger text-right text-[12px] leading-[100%] tracking-[-0.21px]">
+                      <span
+                        className="text-danger text-right text-[12px] leading-[100%] tracking-[-0.21px]"
+                        id="name-error"
+                        role="alert"
+                      >
                         {fieldState.error.message}
                       </span>
                     )}
                   </div>
                   <Input
                     {...field}
+                    id="name"
                     error={!!fieldState.error}
                     placeholder="Alexei Ward"
+                    aria-describedby={fieldState.error ? "name-error" : undefined}
                   />
                 </div>
               )}
@@ -115,11 +121,11 @@ const CheckoutForm = ({
               )}
             />
           </div>
-        </div>
-        <div className="space-y-4">
-          <h6 className="text-primary text-[13px] leading-[25px] font-bold tracking-[0.93px]">
+        </fieldset>
+        <fieldset className="space-y-4">
+          <legend className="text-primary text-[13px] leading-[25px] font-bold tracking-[0.93px]">
             SHIPPING INFO
-          </h6>
+          </legend>
           <div className="grid grid-cols-2 gap-x-4 gap-y-6 max-md:grid-cols-1">
             <Controller
               control={control}
@@ -241,11 +247,11 @@ const CheckoutForm = ({
               )}
             />
           </div>
-        </div>
-        <div className="space-y-4">
-          <h6 className="text-primary text-[13px] leading-[25px] font-bold tracking-[0.93px]">
+        </fieldset>
+        <fieldset className="space-y-4">
+          <legend className="text-primary text-[13px] leading-[25px] font-bold tracking-[0.93px]">
             PAYMENT DETAILS
-          </h6>
+          </legend>
           <div className="grid grid-cols-2 gap-x-4 gap-y-6 max-md:grid-cols-1">
             <Controller
               control={control}
@@ -258,10 +264,16 @@ const CheckoutForm = ({
                       "text-[12px] leading-[100%] font-bold tracking-[-0.21px]",
                       fieldState.error && "text-danger",
                     )}
+                    id="payment-method-label"
                   >
                     Payment Method
                   </label>
-                  <div className="space-y-4">
+                  <div
+                    className="space-y-4"
+                    role="radiogroup"
+                    aria-labelledby="payment-method-label"
+                    aria-required="true"
+                  >
                     <Checkbox
                       {...field}
                       checked={field.value === "e-Money"}
@@ -356,8 +368,8 @@ const CheckoutForm = ({
               </div>
             )}
           </div>
-        </div>
-      </section>
+        </fieldset>
+      </div>
     </div>
   );
 };

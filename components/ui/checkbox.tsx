@@ -26,11 +26,21 @@ const Checkbox = ({
         error && "ring-danger ring-2",
       )}
       onClick={handleClick}
+      role="radio"
+      aria-checked={checked}
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleClick();
+        }
+      }}
     >
       <div
         className={cn(
           "flex h-5 w-5 items-center justify-center rounded-full border border-[#CFCFCF]",
         )}
+        aria-hidden="true"
       >
         {checked && <div className="bg-primary h-2.5 w-2.5 rounded-full" />}
       </div>
@@ -43,6 +53,8 @@ const Checkbox = ({
         {...props}
         checked={checked}
         onChange={onChange}
+        aria-invalid={error ? "true" : "false"}
+        tabIndex={-1}
       />
     </div>
   );

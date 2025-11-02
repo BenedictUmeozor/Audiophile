@@ -63,12 +63,23 @@ const OrderConfirmation = () => {
   const productName = FIRST_ITEM.productName.split(" ").slice(0, -1).join(" ");
 
   return (
-    <div className="fixed inset-0 top-0 left-0 z-99999 flex items-center justify-center overflow-y-auto bg-black/40 py-12">
+    <div
+      className="fixed inset-0 top-0 left-0 z-99999 flex items-center justify-center overflow-y-auto bg-black/40 py-12"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="order-confirmation-title"
+    >
       <div className="w-full rounded-lg bg-white p-12 max-md:max-w-[88%] max-md:p-8 md:w-[540px]">
-        <div className="bg-primary mb-[33px] flex h-16 w-16 items-center justify-center rounded-full">
+        <div
+          className="bg-primary mb-[33px] flex h-16 w-16 items-center justify-center rounded-full"
+          aria-hidden="true"
+        >
           <CheckIcon />
         </div>
-        <h2 className="mb-6 text-[32px] leading-9 font-bold tracking-[1.14px] max-md:mb-4 max-md:text-[24px] max-md:leading-7 max-md:tracking-[0.86px]">
+        <h2
+          id="order-confirmation-title"
+          className="mb-6 text-[32px] leading-9 font-bold tracking-[1.14px] max-md:mb-4 max-md:text-[24px] max-md:leading-7 max-md:tracking-[0.86px]"
+        >
           THANK YOU <br />
           FOR YOUR ORDER
         </h2>

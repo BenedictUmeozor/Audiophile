@@ -134,10 +134,19 @@ export default function Page() {
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="grid grid-cols-[730px_350px] gap-x-[30px] gap-y-8 max-lg:grid-cols-1 lg:items-start"
+          aria-label="Checkout form"
         >
           <CheckoutForm control={control} />
           <Summary isSubmitting={isSubmitting} />
         </form>
+        <div
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+        >
+          {isSubmitting && "Processing your order..."}
+        </div>
       </Container>
       <OrderConfirmation />
     </main>

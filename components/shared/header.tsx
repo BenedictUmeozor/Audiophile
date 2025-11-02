@@ -43,7 +43,12 @@ const Header = () => {
         addOverflow={false}
       >
         <div className="items-center gap-x-[42px] max-lg:flex">
-          <button className="lg:hidden" onClick={handleClick}>
+          <button
+            className="lg:hidden"
+            onClick={handleClick}
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
             <HamburgerIcon />
           </button>
           <Link href="/" className="max-md:hidden">
@@ -65,7 +70,7 @@ const Header = () => {
             className="h-[25] w-[143]"
           />
         </Link>
-        <nav className="hidden lg:block">
+        <nav className="hidden lg:block" aria-label="Main navigation">
           <ul className="flex items-center gap-[34px]">
             <li>
               <Link
@@ -74,6 +79,7 @@ const Header = () => {
                   "hover:text-primary text-[13px] leading-[25px] font-bold tracking-[2px] uppercase transition-colors duration-150 ease-linear",
                   pathname === "/" ? "text-primary" : "text-white",
                 )}
+                aria-current={pathname === "/" ? "page" : undefined}
               >
                 HOME
               </Link>
@@ -88,6 +94,9 @@ const Header = () => {
                       ? "text-primary"
                       : "text-white",
                   )}
+                  aria-current={
+                    pathname.includes(category.slug) ? "page" : undefined
+                  }
                 >
                   {category.name}
                 </Link>
@@ -95,10 +104,17 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-        <button onClick={handleCartClick} className="relative">
+        <button
+          onClick={handleCartClick}
+          className="relative"
+          aria-label={`Shopping cart with ${productsLength} item${productsLength !== 1 ? "s" : ""}`}
+        >
           <CartIcon />
           {cart.items.length > 0 && (
-            <div className="bg-primary absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full text-[12px] text-white">
+            <div
+              className="bg-primary absolute -top-2 -right-2 flex h-4 w-4 items-center justify-center rounded-full text-[12px] text-white"
+              aria-hidden="true"
+            >
               {productsLength}
             </div>
           )}
