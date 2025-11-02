@@ -3,6 +3,7 @@ import Footer from "@/components/shared/footer";
 import Header from "@/components/shared/header";
 import Menu from "@/components/ui/menu";
 import CartProvider from "@/context/cart-context";
+import ConvexClientProvider from "@/context/convex-provider";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { Toaster } from "react-hot-toast";
@@ -28,13 +29,15 @@ export default function RootLayout({
       <body
         className={`${manrope.className} grid min-h-screen grid-rows-[auto_1fr_auto] antialiased`}
       >
-        <CartProvider>
-          <Header />
-          {children}
-          <Footer />
-          <Menu />
-          <Cart />
-        </CartProvider>
+        <ConvexClientProvider>
+          <CartProvider>
+            <Header />
+            {children}
+            <Footer />
+            <Menu />
+            <Cart />
+          </CartProvider>
+        </ConvexClientProvider>
         <Toaster />
       </body>
     </html>
