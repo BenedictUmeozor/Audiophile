@@ -51,7 +51,7 @@ export async function sendOrderEmail(params: SendOrderEmailParams) {
           <td align="center" style="padding: 12px; font-size: 14px; border-bottom: 1px solid #f1f1f1; color: #101010;">${item.quantity}</td>
           <td align="right" style="padding: 12px; font-size: 14px; border-bottom: 1px solid #f1f1f1; color: #101010;">$${item.price.toLocaleString()}</td>
         </tr>
-      `
+      `,
       )
       .join("");
 
@@ -75,7 +75,7 @@ export async function sendOrderEmail(params: SendOrderEmailParams) {
 <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; max-width: 600px;">
 <tr>
 <td style="background-color: #101010; padding: 24px; text-align: center;">
-<img src="https://audiophile-hng.vercel.app/assets/logo.svg" alt="Audiophile" style="height: 25px;">
+<img src="https://audiophile-hng.vercel.app/assets/logo.png" alt="Audiophile" style="height: 25px;">
 </td>
 </tr>
 <tr>
@@ -148,7 +148,10 @@ ${itemsHTML}
     }
 
     return { success: true, data };
-  } catch (error: any) {
-    return { success: false, error: error.message || "Failed to send email" };
+  } catch (error) {
+    return {
+      success: false,
+      error: (error as Error).message || "Failed to send email",
+    };
   }
 }
