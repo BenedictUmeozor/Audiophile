@@ -39,7 +39,7 @@ A pixel-perfect, fully responsive e-commerce website for premium audio equipment
 1. **Clone the repository**
 
 ```bash
-git clone <https://github.com/BenedictUmeozor/Audiophile>
+git clone https://github.com/BenedictUmeozor/Audiophile
 cd audiophile
 ```
 
