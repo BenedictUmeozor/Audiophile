@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className="bg-dark">
       <Container className="relative pt-[75px] pb-12 max-lg:pt-[60px] max-lg:pb-[46px] max-md:pt-[52px] max-md:text-center">
-        <div className="bg-primary absolute top-0 left-0 z-10 h-1 w-[101px]" />
+        <div className="bg-primary absolute top-0 left-0 z-10 h-1 w-[101px] max-md:left-1/2 max-md:-translate-x-1/2" />
         <div className="mb-8 flex justify-between gap-y-8 max-lg:flex-col max-md:mb-12 max-md:gap-y-12 lg:items-center">
           <Link href="/" className="inline-block max-md:mx-auto">
             <Image
