@@ -2,18 +2,13 @@
 
 import nodemailer from "nodemailer";
 
-const testAccount = await nodemailer.createTestAccount();
-
 const transporter = nodemailer.createTransport({
-  host: testAccount.smtp.host,
-  port: testAccount.smtp.port,
-  secure: testAccount.smtp.secure,
+  service: "gmail",
   auth: {
-    user: testAccount.user,
-    pass: testAccount.pass,
+    user: process.env.EMAIL_USER,
+    pass: process.env.GOOGLE_APP_PASSWORD,
   },
 });
-
 interface SendOrderEmailParams {
   customerName: string;
   customerEmail: string;
@@ -35,7 +30,6 @@ interface SendOrderEmailParams {
 }
 
 export async function sendOrderEmail(params: SendOrderEmailParams) {
-  console.log(testAccount)
   try {
     const {
       customerName,
@@ -148,7 +142,7 @@ ${itemsHTML}
     // Send email using Nodemailer
     try {
       const info = await transporter.sendMail({
-        from: process.env.EMAIL_FROM || "Audiophile <noreply@audiophile.com>",
+        from: `Audiophile <${process.env.EMAIL_USER}>`,
         to: customerEmail,
         subject: `Order Confirmation - ${orderNumber}`,
         html: emailHTML,

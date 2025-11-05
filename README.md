@@ -8,7 +8,7 @@ A pixel-perfect, fully responsive e-commerce website for premium audio equipment
 - 📱 Fully responsive (mobile, tablet, desktop)
 - 🛒 Shopping cart with local storage persistence
 - 💳 Complete checkout flow with form validation
-- 📧 Order confirmation emails via Resend
+- 📧 Order confirmation emails
 - 🗄️ Real-time database with Convex
 - ♿ Fully accessible (WCAG compliant)
 - ⚡ Server Actions for email sending
@@ -20,7 +20,7 @@ A pixel-perfect, fully responsive e-commerce website for premium audio equipment
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS v4
 - **Database:** Convex
-- **Email:** Resend
+- **Email:** Nodemailer with Gmail
 - **Forms:** React Hook Form + Zod
 - **State Management:** React Context API
 - **Deployment:** Vercel
@@ -32,7 +32,7 @@ A pixel-perfect, fully responsive e-commerce website for premium audio equipment
 - Node.js 18+ installed
 - npm or yarn package manager
 - A Convex account (free tier available)
-- A Resend account (free tier available)
+- A Gmail account for sending emails
 
 ### Installation
 
@@ -58,8 +58,9 @@ Create a `.env.local` file in the root directory:
 CONVEX_DEPLOYMENT=<your-convex-deployment>
 NEXT_PUBLIC_CONVEX_URL=<your-convex-url>
 
-# Resend
-RESEND_API_KEY=<your-resend-api-key>
+# Email
+EMAIL_USER=<your-gmail-address>
+GOOGLE_APP_PASSWORD=<your-google-app-password>
 
 # App URL (for production)
 NEXT_PUBLIC_APP_URL=http://localhost:3000
@@ -73,11 +74,12 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
   3. Follow the prompts to create a new project
   4. The CLI will automatically add the variables to `.env.local`
 
-- **Resend:**
-  1. Sign up at [resend.com](https://resend.com)
-  2. Go to API Keys section
-  3. Create a new API key
-  4. Add it to `.env.local` as `RESEND_API_KEY`
+- **Email (Gmail):**
+  1. Use your Gmail address for `EMAIL_USER`
+  2. Enable 2-factor authentication on your Google account
+  3. Generate an App Password: Go to [Google Account settings](https://myaccount.google.com/apppasswords)
+  4. Create a new app password for "Mail"
+  5. Use the generated password for `GOOGLE_APP_PASSWORD`
 
 4. **Initialize Convex**
 
@@ -164,7 +166,8 @@ audiophile/
 |----------|-------------|----------|
 | `CONVEX_DEPLOYMENT` | Convex deployment ID | Yes |
 | `NEXT_PUBLIC_CONVEX_URL` | Convex public URL | Yes |
-| `RESEND_API_KEY` | Resend API key for emails | Yes |
+| `EMAIL_USER` | Your Gmail address for sending emails | Yes |
+| `GOOGLE_APP_PASSWORD` | Google App Password for Gmail | Yes |
 | `NEXT_PUBLIC_APP_URL` | Your app URL (for emails) | Production only |
 
 ## Deployment
