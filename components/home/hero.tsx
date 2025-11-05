@@ -24,24 +24,23 @@ const HomeHero = () => {
             <Button variant="default">SEE PRODUCT</Button>
           </Link>
         </div>
-
       </Container>
-        <picture>
-          <source
-            media="(min-width: 1024px)"
-            srcSet="/assets/home/desktop/image-hero.jpg"
-          />
-          <source
-            media="(min-width: 768px)"
-            srcSet="/assets/home/tablet/image-header.jpg"
-          />
-          <Image
-            src="/assets/home/mobile/image-header.jpg"
-            alt="Hero image"
-            className="absolute inset-0 h-full w-full object-contain object-center"
-            fill
-          />
-        </picture>
+      <picture>
+        <source
+          media="(min-width: 1024px)"
+          srcSet="/assets/home/desktop/image-hero.jpg"
+        />
+        <source
+          media="(min-width: 768px)"
+          srcSet="/assets/home/tablet/image-header.jpg"
+        />
+        <Image
+          src="/assets/home/mobile/image-header.jpg"
+          alt="Hero image"
+          className="absolute inset-0 h-full w-full object-scale-down object-center "
+          fill
+        />
+      </picture>
     </section>
   );
 };
