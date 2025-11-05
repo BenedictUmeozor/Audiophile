@@ -1,8 +1,18 @@
 "use server";
 
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const testAccount = await nodemailer.createTestAccount();
+
+const transporter = nodemailer.createTransport({
+  host: testAccount.smtp.host,
+  port: testAccount.smtp.port,
+  secure: testAccount.smtp.secure,
+  auth: {
+    user: testAccount.user,
+    pass: testAccount.pass,
+  },
+});
 
 interface SendOrderEmailParams {
   customerName: string;
@@ -25,6 +35,7 @@ interface SendOrderEmailParams {
 }
 
 export async function sendOrderEmail(params: SendOrderEmailParams) {
+  console.log(testAccount)
   try {
     const {
       customerName,
@@ -134,20 +145,23 @@ ${itemsHTML}
 </body>
 </html>`;
 
-    // Send email using Resend
-    const { data, error } = await resend.emails.send({
-      from: "Audiophile <onboarding@resend.dev>",
-      to: [customerEmail],
-      subject: `Order Confirmation - ${orderNumber}`,
-      html: emailHTML,
-    });
+    // Send email using Nodemailer
+    try {
+      const info = await transporter.sendMail({
+        from: process.env.EMAIL_FROM || "Audiophile <noreply@audiophile.com>",
+        to: customerEmail,
+        subject: `Order Confirmation - ${orderNumber}`,
+        html: emailHTML,
+      });
 
-    if (error) {
-      console.error("Error sending email:", error);
-      return { success: false, error: error.message };
+      return { success: true, data: info };
+    } catch (emailError) {
+      console.error("Error sending email:", emailError);
+      return {
+        success: false,
+        error: (emailError as Error).message || "Failed to send email",
+      };
     }
-
-    return { success: true, data };
   } catch (error) {
     return {
       success: false,
