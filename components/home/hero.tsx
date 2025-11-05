@@ -25,6 +25,7 @@ const HomeHero = () => {
           </Link>
         </div>
 
+      </Container>
         <picture>
           <source
             media="(min-width: 1024px)"
@@ -37,11 +38,10 @@ const HomeHero = () => {
           <Image
             src="/assets/home/mobile/image-header.jpg"
             alt="Hero image"
-            className="absolute inset-0 h-full w-full object-cover object-bottom"
+            className="absolute inset-0 h-full w-full object-contain object-center"
             fill
           />
         </picture>
-      </Container>
     </section>
   );
 };
