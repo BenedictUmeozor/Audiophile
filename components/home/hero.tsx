@@ -6,7 +6,7 @@ import Button from "../ui/button";
 const HomeHero = () => {
   return (
     <section className={`relative bg-[#191919]`}>
-      <Container className="flex h-screen items-center justify-start py-12 max-lg:max-h-[665px] max-md:max-h-[600px] max-h-[729px]">
+      <Container className="flex h-screen max-h-[calc(729px-96px)] items-center justify-start py-12 max-lg:max-h-[calc(729px-90px)] max-md:max-h-[calc(600px-90px)]">
         <div className="z-10 w-full max-lg:text-center lg:text-left">
           <h5 className="mb-6 text-[14px] leading-[100%] font-normal tracking-[10px] text-white opacity-[49.64%]">
             NEW PRODUCT
@@ -37,7 +37,7 @@ const HomeHero = () => {
         <Image
           src="/assets/home/mobile/image-header.jpg"
           alt="Hero image"
-          className="absolute inset-0 h-full w-full object-scale-down object-center "
+          className="absolute inset-0 h-full w-full object-scale-down object-center"
           fill
         />
       </picture>
