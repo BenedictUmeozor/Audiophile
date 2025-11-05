@@ -6,7 +6,7 @@ import Button from "../ui/button";
 const HomeHero = () => {
   return (
     <section className={`relative bg-[#191919]`}>
-      <Container className="relative flex h-screen items-center justify-start py-12 max-lg:max-h-[665px] max-md:max-h-[600px]">
+      <Container className="flex h-screen items-center justify-start py-12 max-lg:max-h-[665px] max-md:max-h-[600px]">
         <div className="z-10 w-full max-lg:text-center lg:text-left">
           <h5 className="mb-6 text-[14px] leading-[100%] font-normal tracking-[10px] text-white opacity-[49.64%]">
             NEW PRODUCT
